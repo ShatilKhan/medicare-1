@@ -1,18 +1,43 @@
+*{
+  color:aliceblue;
+}
+
 
 .mat-checkbox{
     margin-right: 10px;
 }
 
 .overdue{
-   color: rgb(151, 151, 151);
+   color: rgb(255, 253, 253);
    font-style: italic;
 }
 
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0%);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 100%);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0%);
+  }
+}
+
 .card {
+    
     margin-top: 30px;
     margin-left: 20%;
     max-width: 50%;
-    background-color: #eaeaea;
+    animation: glow 2s linear infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0%);
+    border: 1px solid white;
+    align-content: center;
+    border-radius: 15px;
+    border: 2px solid white;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: aliceblue;
 }
 .overflowHidden{
     overflow: hidden;
@@ -56,6 +81,16 @@ ul {
 
 .input-card {
   max-width: 400px;
+  animation: glow 2s linear infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0%);
+  border: 1px solid white;
+  align-content: center;
+  border-radius: 15px;
+  border: 2px solid white;
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: aliceblue;
+  
 }
 
 .mat-raised-button ~ .mat-raised-button {
@@ -70,6 +105,15 @@ ul {
   bottom: 3%;
   right: 2%;
   z-index: 5;
+  animation: glow 2s linear infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0%);
+  border: 1px solid rgb(255, 255, 255);
+  align-content: center;
+  border-radius: 50%;
+  border: 2px solid rgb(18, 187, 221);
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: aliceblue;
 }
 
 .stretch-badge > .mat-badge-content {
@@ -97,9 +141,9 @@ ul {
 
 #med-adjust{
   text-decoration: none;
-  color: #333;
+  color: #000000;
 }
 
-#med-title{
-  color: #333;
+mat-card-subtitle{
+  color: aliceblue;
 }
