@@ -34,8 +34,6 @@ import { MatCardModule } from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatBadgeModule} from '@angular/material/badge';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
 
 
 FullCalendarModule.registerPlugins([
@@ -55,8 +53,6 @@ FullCalendarModule.registerPlugins([
     CalendarComponent,
     UpdateComponent,
     ImprintComponent,
-    LoginComponent,
-    RegistrationComponent,
     
   ],
   imports: [

@@ -6,7 +6,6 @@ import {
   FormControl,
 } from "@angular/forms";
 import * as moment from "moment";
-import { Twilio } from 'twilio';
 
 @Component({
   selector: "app-todos",
@@ -25,59 +24,14 @@ export class TodosComponent implements OnInit {
     end: new FormControl(),
   });
 
-  phoneNumber!: string;
-
-  // Twilio configuration
-  private accountSid = 'AC883d01cff9800d599a402911cd9028ca';
-  private authToken = '2677559789eff72507d798f72b2dd9e8';
-  private twilioPhoneNumber = '+13613092096';
-
-  // Create a Twilio client
-  private client: Twilio;
-
-  constructor(private todoService: TodoService) {
-    this.client = new Twilio(this.accountSid, this.authToken);
-  }
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
     this.loadTodos();
     var clicked = false;
     this.breakpoint = window.innerWidth <= 600 ? 1 : 2;
     this.height = window.innerWidth <= 600 ? "200px" : "500px";
-    this.scheduleNotifications();
   }
-
-  scheduleNotifications() {
-    setInterval(() => {
-      const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
-
-      if (currentTime === '09:00:00') {
-        this.sendNotification('Good morning!');
-      } else if (currentTime === '13:00:00') {
-        this.sendNotification('Time for your midday medication!');
-      } else if (currentTime === '17:00:00') {
-        this.sendNotification('Evening medication reminder!');
-      } else if (currentTime === '21:00:00') {
-        this.sendNotification('Take your night medication!');
-      }
-    }, 1000);
-  }
-
-  sendNotification(message: string) {
-    if (this.phoneNumber) {
-      this.client.messages
-        .create({
-          body: message,
-          from: this.twilioPhoneNumber,
-          to: this.phoneNumber
-        })
-        .then((message: any) => console.log('SMS notification sent:', message.sid))
-        .catch((error: any) => console.error('Failed to send SMS notification:', error));
-    }
-  }
-
-
-
   //Datepicker----------------------------------------------------------------------------------------------------------------------------------------
 
   //erzeugt mehrere Events, da ein Mediakament mehrere Tage eingenommen werden muss -------------------------------------------------------
